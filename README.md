@@ -15,4 +15,4 @@ CONFIGURATION & RUNNING:
  - Backup your SOURCE directory before using
  - Copy full source code to SOURCE directory
  - Empty DESTINATION directory. Set write permission (CHMOD 777) for script to write new file/directory.
- - Run './index.php' to start obfuscator
+ - Run './index.php' to start minifier.
