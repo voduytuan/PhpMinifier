@@ -1,8 +1,8 @@
-PhpMinifier
+[PhpMinifier]
 
-Author: Vo Duy Tuan <tuanmaster2002@yahoo.com>
-Version: 1.0
-Release Date: August 20, 2012
+-Author: Vo Duy Tuan <tuanmaster2002@yahoo.com>
+-Version: 1.0
+-Release Date: August 20, 2012
 ------------------------------
 HOW IT WORKS:
  - This script will scan the SOURCE directory and copy the file/directory structure to DESTINATION directory. With PHP files, it will strip the comment and un-need whitespace (same with php -v command in PHP CLI mode)
