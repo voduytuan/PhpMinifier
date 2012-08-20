@@ -2,11 +2,6 @@
 
 
 /**
-* Ung dung dung de tao version obfuscate cho cac file php
-* 
-* Doi voi cac file php thi su dung PHP CLI php -w filename de strip comment va whitespace
-* con doi voi cac file khac thi tu dong copy ma thoi
-* 
 * @author: Vo Duy Tuan <webmaster@vinabranding.com>
 * @website: http://bloghoctap.com
 */
@@ -19,16 +14,11 @@ include('class.read_full_dir.php');
 $workingPath = dirname(__FILE__);
 
 
-//Thu muc chua source cua website can obfuscate
-//ket thuc khong co dau slash '/'
-//tip:ban nen backup thu muc nay, boi vi co the neu co truc trac thi se khong co van de gi voi source goc
-$sourceDirectory = $workingPath . DIRECTORY_SEPARATOR . '_source';
-$destinationDirectory = $workingPath . DIRECTORY_SEPARATOR . '_destination';
-
-//false neu khong muon tao cau truc thu muc
-$createDirectory = true;
+$sourceDirectory = $workingPath . DIRECTORY_SEPARATOR . '_source';	//not end with slash /
+$destinationDirectory = $workingPath . DIRECTORY_SEPARATOR . '_destination'; //not end with slash
 
 //init
+$createDirectory = true;
 $showSubmitButton = false;
 
 //create directory in destination folder
@@ -37,13 +27,13 @@ echo '<html>
 			<title>BHT Fuscator - Lightweight PHP Obfuscator</title>
 		</head>
 		<body>
-		<h1>BHT Fuscator - Lightweight PHP Obfuscator</h1>
+		<h1>PhpMinifier - Lightweight PHP Code Minifier</h1>
 		<hr />';
-echo '	<h2>Obfuscate directory <em><u>' . $sourceDirectory . '</u></em> </h2>';
+echo '	<h2>Source directory <em><u>' . $sourceDirectory . '</u></em> </h2>';
 
 $startObfuscate = true;
 
-//kiem tra destinationDirectory co empty khong
+//Check the destination directory whether empty or not
 if ( ($files = @scandir($destinationDirectory)) && count($files) > 2)
 {
 	echo '<h3 style="color:#f00">Destination Directory (<em><u>'.$destinationDirectory.'</u></em>) is not empty. Delete all its subdirectories and files before start.</h3>';
@@ -105,7 +95,7 @@ if($startObfuscate)
 			}
 		}
 
-		echo '<h2>Copy Normal Files &amp; SCAN PHP files for obfuscator</h2>';
+		echo '<h2>Copy Normal Files &amp; SCAN PHP files for minifying</h2>';
 		//process file (copy normal file and obfusce php file)
 
 		for($i = 0; $i < count($obj->dir_tree['files']); $i++)
@@ -147,12 +137,12 @@ if($startObfuscate)
 	else
 	{
 		if(!$showSubmitButton)
-			echo '<form method="post" action="?"><input type="submit" name="fsubmit" value="  START OBFUSCATOR  " /></form>';
+			echo '<form method="post" action="?"><input type="submit" name="fsubmit" value="  START MINIFY  " /></form>';
 
 	}
 }
 
-echo '<hr /><p style="text-align:center;">Copyright &copy; 2011 BlogHoctap.com. Developed by Vo Duy Tuan &lt;tuanmaster2002@yahoo.com&gt;</p>
+echo '<hr /><p style="text-align:center;">Copyright &copy; 2012 BlogHoctap.com. Developed by Vo Duy Tuan &lt;tuanmaster2002@yahoo.com&gt;</p>
 </body></html>';
 
 
