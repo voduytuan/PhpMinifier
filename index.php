@@ -9,6 +9,7 @@
 
 //no timeout
 set_time_limit(0);
+error_reporting(E_ERROR);
 
 include('class.read_full_dir.php');
 $workingPath = dirname(__FILE__);
@@ -36,8 +37,7 @@ $startObfuscate = true;
 //Check the destination directory whether empty or not
 if ( ($files = @scandir($destinationDirectory)) && count($files) > 2)
 {
-	echo '<h3 style="color:#f00">Destination Directory (<em><u>'.$destinationDirectory.'</u></em>) is not empty. Delete all its subdirectories and files before start.</h3>';
-	$startObfuscate = false;
+	echo '<h3 style="color:#f00">Destination Directory (<em><u>'.$destinationDirectory.'</u></em>) is not empty.</h3>';
 }
 
 if(!file_exists($sourceDirectory) || !is_dir($sourceDirectory))
@@ -144,5 +144,4 @@ if($startObfuscate)
 
 echo '<hr /><p style="text-align:center;">Copyright &copy; 2012 BlogHoctap.com. Developed by Vo Duy Tuan &lt;tuanmaster2002@yahoo.com&gt;</p>
 </body></html>';
-
 
